@@ -50,7 +50,7 @@ class ToOpenApiActionImplTest {
     }
 
     static void withTempFile(FailableConsumer<File> consumer) throws Exception {
-	File temp = File.createTempFile(ToOpenApiActionImplTest.class.getSimpleName(), ".yaml");
+	File temp = Files.createTempFile(ToOpenApiActionImplTest.class.getSimpleName(), ".yaml").toFile();
 	try {
 	    consumer.accept(temp);
 	} finally {
